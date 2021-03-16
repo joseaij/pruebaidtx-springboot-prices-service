@@ -1,50 +1,18 @@
-package es.amaris.pruebaidtx.springboot.prices.models.entity;
+package es.amaris.pruebaidtx.springboot.prices.vo;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "PRICES")
-public class Price implements Serializable{
+public class PriceVo {
 		
-	private static final long serialVersionUID = 5059269808634451308L;
+	private Long priceId;			
+	private Long productId;				
+	private Integer brandId;		
+	private LocalDateTime startDate;		
+	private LocalDateTime endDate;			
+	private Integer priceList;					
+	private Double price;
 	
-	@Id	
-	@Column(name = "PRICE_ID")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long priceId;
-		
-	@Column(name = "PRODUCT_ID")	
-	private Long productId;
-			
-	@Column(name = "BRAND_ID")	
-	private Integer brandId;
-	
-	@Column(name = "START_DATE")
-	private LocalDateTime startDate;
-	
-	@Column(name = "END_DATE")
-	private LocalDateTime endDate;
-		
-	@Column(name = "PRICE_LIST")
-	private Integer priceList;		
-		
-	@Column(name = "PRIORITY")
-	private Integer priority;	
-	
-	@Column(name = "PRICE")
-	private Double price;		
-	
-	@Column(name = "CURR")
-	private String curr;
-
 	
 	
 	
@@ -52,86 +20,58 @@ public class Price implements Serializable{
 	public Long getPriceId() {
 		return priceId;
 	}
-
 	public void setPriceId(Long priceId) {
 		this.priceId = priceId;
 	}
-
 	public Long getProductId() {
 		return productId;
 	}
-
 	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
-
 	public Integer getBrandId() {
 		return brandId;
 	}
-
 	public void setBrandId(Integer brandId) {
 		this.brandId = brandId;
 	}
-
 	public LocalDateTime getStartDate() {
 		return startDate;
 	}
-
 	public void setStartDate(LocalDateTime startDate) {
 		this.startDate = startDate;
 	}
-
 	public LocalDateTime getEndDate() {
 		return endDate;
 	}
-
 	public void setEndDate(LocalDateTime endDate) {
 		this.endDate = endDate;
 	}
-
 	public Integer getPriceList() {
 		return priceList;
 	}
-
 	public void setPriceList(Integer priceList) {
 		this.priceList = priceList;
 	}
-
-	public Integer getPriority() {
-		return priority;
-	}
-
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
-
 	public Double getPrice() {
 		return price;
 	}
-
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-
-	public String getCurr() {
-		return curr;
-	}
-
-	public void setCurr(String curr) {
-		this.curr = curr;
-	}
-
+	
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((brandId == null) ? 0 : brandId.hashCode());
 		result = prime * result + ((priceId == null) ? 0 : priceId.hashCode());
-		result = prime * result + ((priority == null) ? 0 : priority.hashCode());
 		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -140,7 +80,7 @@ public class Price implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Price other = (Price) obj;
+		PriceVo other = (PriceVo) obj;
 		if (brandId == null) {
 			if (other.brandId != null)
 				return false;
@@ -151,17 +91,61 @@ public class Price implements Serializable{
 				return false;
 		} else if (!priceId.equals(other.priceId))
 			return false;
-		if (priority == null) {
-			if (other.priority != null)
-				return false;
-		} else if (!priority.equals(other.priority))
-			return false;
 		if (productId == null) {
 			if (other.productId != null)
 				return false;
 		} else if (!productId.equals(other.productId))
 			return false;
 		return true;
-	}								
-										
+	}										
+	
+	
+	public static class Builder {
+
+        private final PriceVo object;
+
+        public Builder() {
+            object = new PriceVo();
+        }
+
+        public Builder withPriceId(Long value) {
+            object.priceId = value;
+            return this;
+        }
+
+        public Builder withProductId(Long value) {
+            object.productId = value;
+            return this;
+        }
+
+        public Builder withBrandId(Integer value) {
+            object.brandId = value;
+            return this;
+        }
+
+        public Builder withStartDate(LocalDateTime value) {
+            object.startDate = value;
+            return this;
+        }
+
+        public Builder withEndDate(LocalDateTime value) {
+            object.endDate = value;
+            return this;
+        }
+        
+        public Builder withPriceList(Integer value) {
+            object.priceList = value;
+            return this;
+        }
+        
+        public Builder withPrice(Double value) {
+            object.price = value;
+            return this;
+        }
+
+        public PriceVo build() {
+            return object;
+        }
+    }
+
 }

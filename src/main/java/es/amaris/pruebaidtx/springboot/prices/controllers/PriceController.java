@@ -1,7 +1,6 @@
 package es.amaris.pruebaidtx.springboot.prices.controllers;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -11,23 +10,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.amaris.pruebaidtx.springboot.prices.models.entity.Price;
 import es.amaris.pruebaidtx.springboot.prices.models.service.IPriceService;
+import es.amaris.pruebaidtx.springboot.prices.vo.PriceVo;
 
 @RestController
 @RequestMapping("/prices")
 public class PriceController {
+		
+	private final IPriceService priceService;	
 	
 	@Autowired
-	private IPriceService priceService;	
+    public PriceController(IPriceService priceService) {
+        this.priceService = priceService;
+    }
 	
 	@GetMapping("")
 	@ResponseBody	
-	public List<Price> findByCustomQuery(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate, 
-			                    @RequestParam Long productId, 
-			                    @RequestParam Integer brandId){							
+	public PriceVo findByCustomQuery(
+			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime priceDate, 
+			@RequestParam Long productId, 
+			@RequestParam Integer brandId){							
 		
-		return priceService.findByCustomQuery(startDate, productId, brandId);	
+		return priceService.findByCustomQuery(priceDate, productId, brandId);	
 	}
 		
 }

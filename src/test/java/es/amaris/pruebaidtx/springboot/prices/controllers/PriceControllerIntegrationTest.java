@@ -29,7 +29,7 @@ public class PriceControllerIntegrationTest {
     	
     	LocalDateTime localDateTime = LocalDateTime.parse("2020-06-14T10:00:00");    	        
         
-        mockMvc.perform(get("/prices?startDate=2020-06-14T10:00:00&productId=35455&brandId=1"))
+        mockMvc.perform(get("/prices?priceDate=2020-06-14T10:00:00&productId=35455&brandId=1"))
                 .andDo(print())
                 .andExpect(status().isOk());
         verify(priceService).findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);
@@ -40,7 +40,7 @@ public class PriceControllerIntegrationTest {
     	
     	LocalDateTime localDateTime = LocalDateTime.parse("2020-06-14T16:00:00");    	        
         
-        mockMvc.perform(get("/prices?startDate=2020-06-14T16:00:00&productId=35455&brandId=1"))
+        mockMvc.perform(get("/prices?priceDate=2020-06-14T16:00:00&productId=35455&brandId=1"))
                 .andDo(print())
                 .andExpect(status().isOk());
         verify(priceService).findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);
@@ -51,7 +51,7 @@ public class PriceControllerIntegrationTest {
     	
     	LocalDateTime localDateTime = LocalDateTime.parse("2020-06-14T21:00:00");    	        
         
-        mockMvc.perform(get("/prices?startDate=2020-06-14T21:00:00&productId=35455&brandId=1"))
+        mockMvc.perform(get("/prices?priceDate=2020-06-14T21:00:00&productId=35455&brandId=1"))
                 .andDo(print())
                 .andExpect(status().isOk());
         verify(priceService).findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);
@@ -62,7 +62,7 @@ public class PriceControllerIntegrationTest {
     	
     	LocalDateTime localDateTime = LocalDateTime.parse("2020-06-15T10:00:00");    	        
         
-        mockMvc.perform(get("/prices?startDate=2020-06-15T10:00:00&productId=35455&brandId=1"))
+        mockMvc.perform(get("/prices?priceDate=2020-06-15T10:00:00&productId=35455&brandId=1"))
                 .andDo(print())
                 .andExpect(status().isOk());
         verify(priceService).findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);
@@ -73,7 +73,7 @@ public class PriceControllerIntegrationTest {
     	
     	LocalDateTime localDateTime = LocalDateTime.parse("2020-06-16T21:00:00");    	        
         
-        mockMvc.perform(get("/prices?startDate=2020-06-16T21:00:00&productId=35455&brandId=1"))
+        mockMvc.perform(get("/prices?priceDate=2020-06-16T21:00:00&productId=35455&brandId=1"))
                 .andDo(print())
                 .andExpect(status().isOk());
         verify(priceService).findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);

@@ -1,12 +1,11 @@
 package es.amaris.pruebaidtx.springboot.prices.models.service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-import es.amaris.pruebaidtx.springboot.prices.models.entity.Price;
+import es.amaris.pruebaidtx.springboot.prices.vo.PriceVo;
 
 public interface IPriceService {
 		
-	public List<Price> findByCustomQuery(LocalDateTime startDate, Long productId, Integer brandId);
+	PriceVo findByCustomQuery(final LocalDateTime priceDate, final Long productId, final Integer brandId);
 	
 }
