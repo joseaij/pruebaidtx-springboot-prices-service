@@ -26,9 +26,7 @@ public class PriceFilterImpl implements IPriceFilter{
 	public PriceVo applyPriceFilter(final List<Price> priceList, final LocalDateTime priceDate) {		
 		
 		//Sort the list by startDate
-		priceList.sort(Comparator.comparing(Price::getStartDate));						
-		
-		//if (priceList.get(0).getStartDate().isBefore(priceDate)) {																						
+		priceList.sort(Comparator.comparing(Price::getStartDate));																																
 		
 		return priceConverter.convert(filterPriceByDateRangeAndHighPriority(priceList, priceDate).get());			 
 	}		
