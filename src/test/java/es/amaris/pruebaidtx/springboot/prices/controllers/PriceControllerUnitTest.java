@@ -23,7 +23,7 @@ class PriceControllerUnitTest {
 		LocalDateTime localDateTime = LocalDateTime.parse("2020-06-14T10:00:00");
 		
         //WHEN
-        PriceVo prices = priceController.findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);
+        PriceVo prices = priceController.findPriceToApply(localDateTime, Long.parseLong("35455"), 1);
 
         //THEN
         assertThat(prices.getPriceId()).isEqualTo(1);       						        
@@ -36,7 +36,7 @@ class PriceControllerUnitTest {
 		LocalDateTime localDateTime = LocalDateTime.parse("2020-06-14T16:00:00");
 		
         //WHEN
-		PriceVo prices = priceController.findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);
+		PriceVo prices = priceController.findPriceToApply(localDateTime, Long.parseLong("35455"), 1);
 
         //THEN
 		assertThat(prices.getPriceId()).isEqualTo(2);     						        
@@ -49,7 +49,7 @@ class PriceControllerUnitTest {
 		LocalDateTime localDateTime = LocalDateTime.parse("2020-06-14T21:00:00");
 		
         //WHEN
-		PriceVo prices = priceController.findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);
+		PriceVo prices = priceController.findPriceToApply(localDateTime, Long.parseLong("35455"), 1);
 
         //THEN
 		assertThat(prices.getPriceId()).isEqualTo(1);       						        
@@ -62,7 +62,7 @@ class PriceControllerUnitTest {
 		LocalDateTime localDateTime = LocalDateTime.parse("2020-06-15T10:00:00");
 		
         //WHEN
-		PriceVo prices = priceController.findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);
+		PriceVo prices = priceController.findPriceToApply(localDateTime, Long.parseLong("35455"), 1);
 
         //THEN
 		assertThat(prices.getPriceId()).isEqualTo(3);       						        
@@ -75,7 +75,7 @@ class PriceControllerUnitTest {
 		LocalDateTime localDateTime = LocalDateTime.parse("2020-06-16T21:00:00");
 		
         //WHEN
-		PriceVo prices = priceController.findByCustomQuery(localDateTime, Long.parseLong("35455"), 1);
+		PriceVo prices = priceController.findPriceToApply(localDateTime, Long.parseLong("35455"), 1);
 
         //THEN
 		assertThat(prices.getPriceId()).isEqualTo(4);       						        
